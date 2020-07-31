@@ -8,7 +8,6 @@ exports.handler = async (event, context) => {
       body: 'Unsupported Request Method'
     })
   }
-
   const { user } = JSON.parse(event.body)
 
   const responseBody = {
