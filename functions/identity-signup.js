@@ -3,10 +3,10 @@ const { HASURA_ADMIN_SECRET } = process.env
 
 exports.handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
-    return callback(null, {
+    return {
       statusCode: 410,
-      body: 'Unsupported Request Method'
-    })
+      body: JSON.stringify({error: 'Unsupported Request Method'}
+    }
   }
   const { user } = JSON.parse(event.body)
 
@@ -41,7 +41,7 @@ exports.handler = async (event, context) => {
 
     return {
       statusCode: 500,
-      body: 'something is wrong'
+      body: JSON.stringify({error: e}
     }
   }
 
