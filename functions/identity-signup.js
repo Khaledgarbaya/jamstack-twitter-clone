@@ -35,6 +35,7 @@ exports.handler = async (event, context) => {
         }
       }
     )
+    console.log(JSON.stringify(result.data))
   } catch (e) {
     console.log(e)
 
